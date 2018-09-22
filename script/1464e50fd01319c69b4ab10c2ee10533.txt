@@ -1,0 +1,357 @@
+
+pr0793445#
+pr0793445#
+pr0793445#sho
+pr0793445#show run
+pr0793445#show running-config
+Building configuration...
+
+
+Current configuration : 7043 bytes
+!
+! Last configuration change at 18:22:16 UTC Fri Mar 27 2015 by cisco
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname pr0793445
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+logging buffered 51200 warnings
+enable secret 5 $1$Ecrt$xQrPg.EVJIIj133qTB6MB1
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name yourdomain.com
+ip cef
+no ipv6 cef
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FJC1846A0CZ
+hw-module pvdm 0/0
+!
+!
+!
+!
+redundancy
+!
+!
+!
+class-map match-any MULTIMIDIA
+ match access-group name MULTIMIDIA
+class-map match-any VOZ
+  description DIMED VOZ
+ match access-group name VOZ
+class-map match-any EXPRESS
+  description DIMED EXPRESSO
+ match access-group name EXPRESS
+!
+policy-map IN
+ class VOZ
+ class EXPRESS
+ class MULTIMIDIA
+ class class-default
+policy-map out
+ class VOZ
+  set ip dscp ef
+  priority 64
+ class EXPRESS
+  set ip dscp af21
+  bandwidth 192
+ class MULTIMIDIA
+  set ip dscp af31
+  bandwidth 128
+ class class-default
+  fair-queue
+!
+!
+!
+!
+!
+interface Loopback1
+ description LOOPBACK VOIP
+ ip address 172.16.5.29 255.255.255.255
+ shutdown
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description $ETH-LAN$$ETH-SW-LAUNCH$$INTF-INFO-GE 0/0$
+ ip address 10.5.29.5 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ encapsulation frame-relay IETF
+ frame-relay lmi-type ansi
+!
+interface Serial0/0/0.100 point-to-point
+ ip address 172.17.11.2 255.255.255.252
+ snmp trap link-status
+ frame-relay interface-dlci 100 IETF
+  class VOIPFR
+ h323-gateway voip interface
+ h323-gateway voip id gkdimed ipaddr 172.16.0.2 1719
+ h323-gateway voip h323-id 0781893@dimed.com.br
+ h323-gateway voip bind srcaddr 172.17.11.2
+!
+ip forward-protocol nd
+!
+no ip http server
+ip http access-class 23
+ip http authentication local
+no ip http secure-server
+ip http timeout-policy idle 60 life 86400 requests 10000
+!
+ip route 0.0.0.0 0.0.0.0 172.17.11.1
+!
+ip access-list extended EXPRESS
+ permit tcp any any eq 6500
+ permit tcp any any eq 4096
+ permit tcp any any eq 82
+ permit tcp any any eq 9001
+ permit tcp any any range 1521 1530
+ permit tcp any eq 6500 any
+ permit tcp any eq 4096 any
+ permit tcp any eq 9001 any
+ permit tcp any range 1521 1530 any
+ permit tcp any any eq 3389
+ permit tcp any eq 3389 any
+ip access-list extended MULTIMIDIA
+ permit tcp any any eq 1720
+ permit tcp any eq 1720 any
+ip access-list extended SIGVOIP
+ permit tcp any any eq 1720
+ permit tcp any eq 1720 any
+ip access-list extended VOZ
+ permit udp any any range 16384 32767
+ permit udp any range 16384 32767 any
+!
+!
+map-class frame-relay VOIPFR
+ frame-relay cir 504000
+ frame-relay bc 5120
+ frame-relay be 0
+ frame-relay mincir 504000
+ frame-relay fragment 640
+ service-policy input IN
+!
+!
+snmp-server community dimedsa RO
+snmp-server enable traps tty
+access-list 23 permit 10.10.10.0 0.0.0.7
+!
+control-plane
+!
+!
+voice-port 0/1/0
+ cptone BR
+ shutdown
+!
+voice-port 0/1/1
+ cptone BR
+ shutdown
+ !
+ !
+ !
+ !
+!
+!
+mgcp fax t38 ecm
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+dial-peer voice 1000 voip
+ destination-pattern 1T
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 5000 voip
+ destination-pattern 5T
+ session target ras
+ ip qos dscp cs5 media
+!
+dial-peer voice 4600 voip
+ destination-pattern 46..
+ session target ras
+ tech-prefix 1#
+ ip qos dscp cs5 media
+!
+dial-peer voice 4700 voip
+ destination-pattern 47..
+ session target ras
+ tech-prefix 2#
+ ip qos dscp cs5 media
+!
+dial-peer voice 6000 voip
+ destination-pattern 6...
+ session target ras
+ tech-prefix 3#
+ ip qos dscp cs5 media
+!
+dial-peer voice 9310 voip
+ destination-pattern 931[0-9]
+ session target ras
+ tech-prefix 6#
+ ip qos dscp cs5 media
+!
+dial-peer voice 9320 voip
+ destination-pattern 932[0-9]
+ session target ras
+ tech-prefix 5#
+ ip qos dscp cs5 media
+!
+dial-peer voice 9330 voip
+ destination-pattern 933[0-9]
+ session target ras
+ tech-prefix 4#
+ ip qos dscp cs5 media
+!
+dial-peer voice 9000 voip
+ destination-pattern 9[0-2]
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 9500 voip
+ destination-pattern 9500
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 148 voip
+ destination-pattern 148T
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 151 voip
+ destination-pattern 151T
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 154 voip
+ destination-pattern 154T
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 9300 voip
+ destination-pattern 930[0-1]
+ session target ras
+ ip qos dscp cs5 media
+!
+dial-peer voice 5031 voip
+ destination-pattern 5031
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 5010 voip
+ destination-pattern 5031
+ session target ipv4:172.16.0.2
+ ip qos dscp cs5 media
+!
+dial-peer voice 7000 voip
+ destination-pattern 70[5-9].
+ session target ras
+ tech-prefix 7#
+!
+dial-peer voice 5511 pots
+ destination-pattern 5511
+!
+dial-peer voice 5521 pots
+ destination-pattern 5521
+ port 0/1/0
+!
+!
+gateway
+ timer receive-rtp 1200
+!
+!
+!
+gatekeeper
+ no shutdown
+!
+!
+banner motd ^CCCCC
+===============================================================
+===============================================================
+==                                                           ==
+==                                                           ==
+==         #######   #                  ######   ######      ==
+==        #     #   #                  #     #  #     #      ==
+==       #     #   #       ####       #######  #######       ==
+==      #     #   #       ####       #        #   #          ==
+==     #######   #                  #        #    #          ==
+==                                                           ==
+==                    O I    P A R A N A                     ==
+==                                                           ==
+==                      0793445 - CTPT                       ==
+==                       dimed/panvel                        ==
+==                      CURITIBA / PR                        ==
+==                       vetor frame                         ==
+==                                                           ==
+===============================================================
+===============================================================
+^C
+!
+line con 0
+ login local
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ password pr0793445
+ login local
+ transport input all
+line vty 5 15
+ access-class 23 in
+ privilege level 15
+ login local
+ transport input telnet ssh
+!
+scheduler allocate 20000 1000
+!
+end
+
+pr0793445#

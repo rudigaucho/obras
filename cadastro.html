@@ -1,0 +1,748 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html lang="pt-br">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('input[type=radio]').change(function() {
+        if (this.value == 'mt20' || this.value == 'pc' || this.value == 'pl' || this.value == 'ml' || this.value == 'mc') {
+            $("#tb1").css("display","block");
+            $("#tb2").css("display","block");
+         
+        }
+        else if (this.value == 'mt10') {
+            $("#tb1").css("display","block");
+            $("#tb2").css("display","none");
+         
+        }
+         else if (this.value == 'pp' || this.value == 'mp' ) {
+            $("#tb1").css("display","none");
+            $("#tb2").css("display","none");
+         
+        }
+    });
+});
+
+</script>
+
+
+
+
+
+ <style>
+
+ .none{
+    display:none;
+}
+
+
+
+label.error {
+    color: red;
+    font-size: 10px;
+    font-family: arial;      
+}
+
+
+     #jumbo{
+  background: url(empresa.jpg) no-repeat;
+
+}
+  </style>
+<link rel="icon" href="logo.png">
+
+
+
+
+
+
+<!--   FIM FUNCAO                            -->
+
+
+
+
+
+
+
+  <meta charset="utf-8">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<link rel="stylesheet"  href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet"  href="/resources/demos/style.css">
+
+
+
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.maskedinput.js"></script>
+<script type="text/javascript" src="validacao.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="icon" href="img/logo_oi.ico">
+
+
+
+
+<style>
+ footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+       text-align:center;
+    }
+  .container-fluid
+  {
+  background-color: orange;
+  }
+  #realcar
+  {
+  background-color: grey;
+  }
+   #realcar2
+  {
+  background-color: #D3D3D3;
+  }
+
+  #loading
+{
+  
+width:70px;
+height:70px;  
+  
+  
+  
+  
+}
+
+
+
+</style>
+  <title>CADASTRO OBRAS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <!-- ///////PASTA BOOTSTRAP ////////////////////-->
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+ <script src="jquery-min.js"></script>
+ <script src="jquery-ui.js"></script>
+ <script src="jquery-ui.min.js"></script>
+<script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+    <!-- ///////PASTA BOOTSTRAP ////////////////////-->
+
+</head>
+<body>
+
+<div class="jumbotron text-center " id="jumbo">
+  <br><br><br><br><br><br><br>
+</div>
+
+
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+       
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Voltar</a></li>
+        
+       
+
+
+ 
+      
+ 
+    
+      
+      <li><a href="#"></a></li> 
+      <li><a href="#"></a></li> 
+    </ul>
+  </div>
+</nav>
+
+<span><strong>CADASTRO OBRAS</strong></span><br><br><br><br>
+
+<div class="container">
+
+
+<div class="row content">
+
+
+    <div class="col-sm-10 "  >
+
+    
+  
+  <form class="form" role="form" name="seachform" method="post" action="enviar.php " enctype="multipart/form-data" >
+
+   
+
+    <div class="form-group">
+
+   
+
+
+
+
+      <label for="email" >Nº DA OBRA:</label>  
+      <input type="text" class="form-control" id="n_obra" name="n_obra"  required>
+    </div>
+       <div class="form-group">
+       <label for="email">LOCALIDADE:</label>  
+      <input type="text" class="form-control" id="local" name="local"  required>
+    </div>
+    <div class="form-group">
+       <label for="email">CENTRAL:</label>  
+      <input type="text" class="form-control" id="central" name="central"  required>
+    </div>
+      <div class="form-group">
+       <label for="email">TÉCNICO RESPONSÁVEL:</label>  
+      <input type="text" class="form-control" id="tec" name="tec"  required>
+    </div>
+      <div class="form-group">
+       <label for="email">EQUIPE:</label>  
+      <input type="text" class="form-control" id="equipe" name="equipe"  required>
+    </div>
+    <div class="form-group">
+       <label for="email">GESTOR DA OBRA:</label>  
+      <input type="text" class="form-control" id="gestor" name="gestor"  required>
+    </div>
+   
+
+
+         
+
+
+   <div class="form-group">
+       <label for="email">ENDEREÇO:</label>  
+      <input type="text" class="form-control" id="endereco" name="endereco"  required>
+    </div>
+     <div class="form-group">
+       <label for="email">PONTO DE REFERÊNCIA:</label>  
+      <input type="text" class="form-control" id="ref" name="ref"  required>
+    </div>
+     <div class="form-group">
+       <label for="email">Nº DA FOTO:</label>  
+      <input type="text" class="form-control" id="n_foto" name="n_foto"  required>
+    </div>
+
+  <label for="email">TIPO POSTE: </label><br>
+
+
+
+
+
+
+<label class="radio-inline"><input type="radio" name="optradio" value="mt10">mt10</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="mt20" >mt20</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="pp">pp</label>
+
+<label class="radio-inline"><input type="radio" name="optradio" value="mp">mp</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="pc">pc</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="pl">pl</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="mc">mc</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="ml">ml</label>
+
+
+
+
+    <br><br>
+
+
+        <div class="form-group">
+    <label for="email">OBS: </label>
+  <textarea class="form-control" rows="5" id="obs" name="obs" placeholder="Máximo 300 caracteres" maxlength="300"></textarea>
+    </div>
+
+   
+ 
+    <table class="table table-bordered" id="tb1" name="tb1">
+    <span><strong>BINAGEM DE CX (1):</strong></span><br><br>
+    <thead>
+      <tr>
+        <th>PAR</th>
+        <th>TELEFONE</th>
+        <th>CABO</th>
+        <th>PRIMÁRIO</th>
+        <th>ARD</th>
+        <th>SECUNDÁRIO</th>
+        <th>CAIXA</th>
+       
+      
+
+
+      </tr>
+    </thead>
+    <tbody> 
+      <tr>
+        <td> 1</td>
+        <td> <input type="text" class="form-control" id="tel1" name="tel1"  required></td>
+        <td> <input type="text" class="form-control" id="cabo1" name="cabo1"  required></td>
+        <td> <input type="text" class="form-control" id="pri1" name="pri1"  required></td>
+        <td> <input type="text" class="form-control" id="ard1" name="ard1"  required></td>
+        <td> <input type="text" class="form-control" id="sec1" name="sec1"  required></td>
+        <td> <input type="text" class="form-control" id="cx1" name="cx1"  required></td>
+        
+        
+      </tr>
+      <tr>
+        <td>2</td>
+         <td> <input type="text" class="form-control" id="tel2" name="tel2"  required></td>
+        <td> <input type="text" class="form-control" id="cabo2" name="cabo2"  required></td>
+        <td> <input type="text" class="form-control" id="pri2" name="pri2"  required></td>
+        <td> <input type="text" class="form-control" id="ard2" name="ard2"  required></td>
+        <td> <input type="text" class="form-control" id="sec2" name="sec2"  required></td>
+        <td> <input type="text" class="form-control" id="cx2" name="cx2"  required></td>
+    
+      </tr>
+      <tr>
+         <td>3</td>
+        <td> <input type="text" class="form-control" id="tel3" name="tel3"  required></td>
+        <td> <input type="text" class="form-control" id="cabo3" name="cabo3"  required></td>
+        <td> <input type="text" class="form-control" id="pri3" name="pri3"  required></td>
+        <td> <input type="text" class="form-control" id="ard3" name="ard3"  required></td>
+        <td> <input type="text" class="form-control" id="sec3" name="sec3"  required></td>
+        <td> <input type="text" class="form-control" id="cx3" name="cx3"  required></td>
+       
+     
+      </tr>
+      <tr>
+         <td>4</td>
+         <td> <input type="text" class="form-control" id="tel4" name="tel4"  required></td>
+        <td> <input type="text" class="form-control" id="cabo4" name="cabo4"  required></td>
+        <td> <input type="text" class="form-control" id="pri4" name="pri4"  required></td>
+        <td> <input type="text" class="form-control" id="ard4" name="ard4"  required></td>
+        <td> <input type="text" class="form-control" id="sec4" name="sec4"  required></td>
+        <td> <input type="text" class="form-control" id="cx4" name="cx4"  required></td>
+       
+     
+      </tr>
+      <tr>
+         <td>5</td>
+       <td> <input type="text" class="form-control" id="tel5" name="tel5"  required></td>
+        <td> <input type="text" class="form-control" id="cabo5" name="cabo5"  required></td>
+        <td> <input type="text" class="form-control" id="pri5" name="pri5"  required></td>
+        <td> <input type="text" class="form-control" id="ard5" name="ard5"  required></td>
+        <td> <input type="text" class="form-control" id="sec5" name="sec5"  required></td>
+        <td> <input type="text" class="form-control" id="cx5" name="cx5"  required></td>
+       
+     
+      </tr>
+      <tr>
+         <td>6</td>
+       <td> <input type="text" class="form-control" id="tel6" name="tel6"  required></td>
+        <td> <input type="text" class="form-control" id="cabo6" name="cabo6"  required></td>
+        <td> <input type="text" class="form-control" id="pri6" name="pri6"  required></td>
+        <td> <input type="text" class="form-control" id="ard6" name="ard6"  required></td>
+        <td> <input type="text" class="form-control" id="sec6" name="sec6"  required></td>
+        <td> <input type="text" class="form-control" id="cx6" name="cx6"  required></td>
+       
+     
+      </tr>
+      <tr>
+         <td>7</td>
+    <td> <input type="text" class="form-control" id="tel7" name="tel7"  required></td>
+        <td> <input type="text" class="form-control" id="cabo7" name="cabo7"  required></td>
+        <td> <input type="text" class="form-control" id="pri7" name="pri7"  required></td>
+        <td> <input type="text" class="form-control" id="ard7" name="ard7"  required></td>
+        <td> <input type="text" class="form-control" id="sec7" name="sec7"  required></td>
+        <td> <input type="text" class="form-control" id="cx7" name="cx7"  required></td>
+     
+      </tr>
+      <tr>
+         <td>8</td>
+    <td> <input type="text" class="form-control" id="tel8" name="tel8"  required></td>
+        <td> <input type="text" class="form-control" id="cabo8" name="cabo8"  required></td>
+        <td> <input type="text" class="form-control" id="pri8" name="pri8"  required></td>
+        <td> <input type="text" class="form-control" id="ard8" name="ard8"  required></td>
+        <td> <input type="text" class="form-control" id="sec8" name="sec8"  required></td>
+        <td> <input type="text" class="form-control" id="cx8" name="cx8"  required></td8>
+       
+     
+      </tr>
+      <tr>
+         <td>9</td>
+         <td> <input type="text" class="form-control" id="tel9" name="tel9"  required></td>
+        <td> <input type="text" class="form-control" id="cabo9" name="cabo9"  required></td>
+        <td> <input type="text" class="form-control" id="pri9" name="pri9"  required></td>
+        <td> <input type="text" class="form-control" id="ard9" name="ard9"  required></td>
+        <td> <input type="text" class="form-control" id="sec9" name="sec9"  required></td>
+        <td> <input type="text" class="form-control" id="cx9" name="cx9"  required></td>
+       
+     
+      </tr>
+      <tr>
+         <td>10</td>
+         <td> <input type="text" class="form-control" id="tel10" name="tel10"  required></td>
+        <td> <input type="text" class="form-control" id="cabo10" name="cabo10"  required></td>
+        <td> <input type="text" class="form-control" id="pri10" name="pri10"  required></td>
+        <td> <input type="text" class="form-control" id="ard10" name="ard10"  required></td>
+        <td> <input type="text" class="form-control" id="sec10" name="sec10"  required></td>
+        <td> <input type="text" class="form-control" id="cx10" name="cx10"  required></td>
+     
+      </tr>
+    </tbody>
+
+
+
+
+    
+  </table>
+
+
+
+
+
+
+  <table  class="table table-bordered"  id="tb2" name="tb2"  >
+
+  <span><strong>BINAGEM DE CX (2):</strong></span><br><br>
+      <thead>
+        <tr>
+          <th>PAR</th>
+          <th>TELEFONE</th>
+          <th>CABO</th>
+          <th>PRIMÁRIO</th>
+          <th>ARD</th>
+          <th>SECUNDÁRIO</th>
+          <th>CAIXA</th>
+         
+        
+
+
+        </tr>
+      </thead>
+      <tbody> 
+        <tr>
+          <td> 1</td>
+          <td> <input type="text" class="form-control" id="tel1" name="tel1"  required></td>
+          <td> <input type="text" class="form-control" id="cabo1" name="cabo1"  required></td>
+          <td> <input type="text" class="form-control" id="pri1" name="pri1"  required></td>
+          <td> <input type="text" class="form-control" id="ard1" name="ard1"  required></td>
+          <td> <input type="text" class="form-control" id="sec1" name="sec1"  required></td>
+          <td> <input type="text" class="form-control" id="cx1" name="cx1"  required></td>
+          
+          
+        </tr>
+        <tr>
+          <td>2</td>
+           <td> <input type="text" class="form-control" id="tel2" name="tel2"  required></td>
+          <td> <input type="text" class="form-control" id="cabo2" name="cabo2"  required></td>
+          <td> <input type="text" class="form-control" id="pri2" name="pri2"  required></td>
+          <td> <input type="text" class="form-control" id="ard2" name="ard2"  required></td>
+          <td> <input type="text" class="form-control" id="sec2" name="sec2"  required></td>
+          <td> <input type="text" class="form-control" id="cx2" name="cx2"  required></td>
+      
+        </tr>
+        <tr>
+           <td>3</td>
+          <td> <input type="text" class="form-control" id="tel3" name="tel3"  required></td>
+          <td> <input type="text" class="form-control" id="cabo3" name="cabo3"  required></td>
+          <td> <input type="text" class="form-control" id="pri3" name="pri3"  required></td>
+          <td> <input type="text" class="form-control" id="ard3" name="ard3"  required></td>
+          <td> <input type="text" class="form-control" id="sec3" name="sec3"  required></td>
+          <td> <input type="text" class="form-control" id="cx3" name="cx3"  required></td>
+         
+       
+        </tr>
+        <tr>
+           <td>4</td>
+           <td> <input type="text" class="form-control" id="tel4" name="tel4"  required></td>
+          <td> <input type="text" class="form-control" id="cabo4" name="cabo4"  required></td>
+          <td> <input type="text" class="form-control" id="pri4" name="pri4"  required></td>
+          <td> <input type="text" class="form-control" id="ard4" name="ard4"  required></td>
+          <td> <input type="text" class="form-control" id="sec4" name="sec4"  required></td>
+          <td> <input type="text" class="form-control" id="cx4" name="cx4"  required></td>
+         
+       
+        </tr>
+        <tr>
+           <td>5</td>
+         <td> <input type="text" class="form-control" id="tel5" name="tel5"  required></td>
+          <td> <input type="text" class="form-control" id="cabo5" name="cabo5"  required></td>
+          <td> <input type="text" class="form-control" id="pri5" name="pri5"  required></td>
+          <td> <input type="text" class="form-control" id="ard5" name="ard5"  required></td>
+          <td> <input type="text" class="form-control" id="sec5" name="sec5"  required></td>
+          <td> <input type="text" class="form-control" id="cx5" name="cx5"  required></td>
+         
+       
+        </tr>
+        <tr>
+           <td>6</td>
+         <td> <input type="text" class="form-control" id="tel6" name="tel6"  required></td>
+          <td> <input type="text" class="form-control" id="cabo6" name="cabo6"  required></td>
+          <td> <input type="text" class="form-control" id="pri6" name="pri6"  required></td>
+          <td> <input type="text" class="form-control" id="ard6" name="ard6"  required></td>
+          <td> <input type="text" class="form-control" id="sec6" name="sec6"  required></td>
+          <td> <input type="text" class="form-control" id="cx6" name="cx6"  required></td>
+         
+       
+        </tr>
+        <tr>
+           <td>7</td>
+      <td> <input type="text" class="form-control" id="tel7" name="tel7"  required></td>
+          <td> <input type="text" class="form-control" id="cabo7" name="cabo7"  required></td>
+          <td> <input type="text" class="form-control" id="pri7" name="pri7"  required></td>
+          <td> <input type="text" class="form-control" id="ard7" name="ard7"  required></td>
+          <td> <input type="text" class="form-control" id="sec7" name="sec7"  required></td>
+          <td> <input type="text" class="form-control" id="cx7" name="cx7"  required></td>
+       
+        </tr>
+        <tr>
+           <td>8</td>
+      <td> <input type="text" class="form-control" id="tel8" name="tel8"  required></td>
+          <td> <input type="text" class="form-control" id="cabo8" name="cabo8"  required></td>
+          <td> <input type="text" class="form-control" id="pri8" name="pri8"  required></td>
+          <td> <input type="text" class="form-control" id="ard8" name="ard8"  required></td>
+          <td> <input type="text" class="form-control" id="sec8" name="sec8"  required></td>
+          <td> <input type="text" class="form-control" id="cx8" name="cx8"  required></td8>
+         
+       
+        </tr>
+        <tr>
+           <td>9</td>
+           <td> <input type="text" class="form-control" id="tel9" name="tel9"  required></td>
+          <td> <input type="text" class="form-control" id="cabo9" name="cabo9"  required></td>
+          <td> <input type="text" class="form-control" id="pri9" name="pri9"  required></td>
+          <td> <input type="text" class="form-control" id="ard9" name="ard9"  required></td>
+          <td> <input type="text" class="form-control" id="sec9" name="sec9"  required></td>
+          <td> <input type="text" class="form-control" id="cx9" name="cx9"  required></td>
+         
+       
+        </tr>
+        <tr>
+           <td>10</td>
+           <td> <input type="text" class="form-control" id="tel10" name="tel10"  required></td>
+          <td> <input type="text" class="form-control" id="cabo10" name="cabo10"  required></td>
+          <td> <input type="text" class="form-control" id="pri10" name="pri10"  required></td>
+          <td> <input type="text" class="form-control" id="ard10" name="ard10"  required></td>
+          <td> <input type="text" class="form-control" id="sec10" name="sec10"  required></td>
+          <td> <input type="text" class="form-control" id="cx10" name="cx10"  required></td>
+       
+        </tr>
+      </tbody>
+
+
+
+
+      
+    </table>
+
+
+
+
+
+<span><strong>MATERIAIS USADOS:</strong></span><br><br>
+ 
+
+
+<div class="wrapper">
+    <div class="toclone">
+        <select name="list">
+            <option>selecione...</option>
+            <option>opção 1</option>
+            <option>opção 2</option>
+            <option>opção 3</option>
+            <option>opção 4</option>
+        </select>
+        <input  type="text" name="produtos[qtd][1]">
+        <button type="button" class="add">+</button>
+        <button type="button" class="remove">-</button>
+    </div>        
+</div>
+
+<script type="text/javascript">
+function adicionar(){
+  var ElementoClonado = $(this.parentNode).clone(); //clona o elemento
+  var str = $(ElementoClonado).children('input').eq(0).attr('name').split("["); //divide o name por "["
+  console.log(str);
+  var intQtd = parseInt(str[2].split("]")[0]); //resgata o numero entre "[" e "]"
+  console.log(intQtd);
+  var newName = "produtos[qtd]["+(intQtd+1)+"]"; //novo valor name somado +1 do original
+  ElementoClonado.children('input').eq(0).attr('name', newName); //seta o novo name para o elemento clonado
+  $('.wrapper').append(ElementoClonado);
+  $('.add').on("click", adicionar);
+  $('.remove').on("click", remover);
+  $(this).unbind("click");
+}
+function remover(){
+  $(this.parentNode).remove();
+}
+$('.add').on("click", adicionar);
+$('.remove').on("click", remover);
+
+</script>
+   
+
+
+<br><br>
+   <span><strong>Máximo 2MB</strong></span><br>
+
+  
+    
+     <label for="email">Foto Antes: </label>
+    <input type="file"  id="foto_ant"  name="foto_ant"/> 
+    <label for="email">Foto Depois: </label>
+    <input type="file" id="foto_dep"  name="foto_dep"/>
+    <label for="email">Croqui: </label>
+    <input type="file"  id="foto_croqui"  name="foto_croqui"/>
+    
+   
+ 
+   
+
+ 
+   
+     <br><br><button type="submit" value="Enviar" class="btn btn-warning" id="enviar" required > <strong>Enviar</strong> </button><br><br><br><br>
+
+
+
+     
+
+        
+   
+
+  
+
+  
+    
+   
+     
+
+    
+    
+  
+  
+    
+    
+
+
+    
+  </form>
+  
+
+ 
+ </div>
+ 
+</div>
+
+</body>
+</html>
+
+
+<script>
+  
+$(function() {
+
+/*var  availableTags = [
+
+"ajskkdp",
+"iiisosoa",
+"ooiismsm",
+"aassdddd",
+"ooedmmmd",
+"iisoosoos"
+];
+
+$( "#cabo" ).autocomplete({
+  source: availableTags
+
+  });
+*/
+
+$.getJSON("listar_cabos.php", function(data){
+//console.log(data);
+var retorno = [];
+
+
+$(data).each( function (key, value){
+
+ // console.log(value.cabo);
+
+ retorno.push(value.cabo);
+
+
+});
+$("#cabo").autocomplete({
+  source: retorno ,
+
+ 
+
+  });
+
+
+
+
+  });
+});
+
+
+
+
+
+
+</script>
+
+<!--
+<script>
+  
+$(function() {
+
+
+
+$.getJSON("listar_cabos.php", function(data2){
+//console.log(data);
+var retorno2 = [];
+
+
+$(data2).each( function (key2, value2){
+
+ // console.log(value.cabo);
+
+ retorno2.push(value2.trecho);
+
+
+});
+$("#localidade").autocomplete({
+  source: retorno2
+
+  });
+
+
+
+
+  });
+});
+
+
+
+
+
+
+</script>
+-->

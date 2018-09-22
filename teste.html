@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+    $('input[type=radio]').change(function() {
+        if (this.value == 'geral') {
+            $("#geral").css("display","block");
+            $("#lista").css("display","none");
+            $("#grid").css("display","none");
+        }
+        else if (this.value == 'lista') {
+            $("#lista").css("display","block");
+            $("#geral").css("display","none");
+            $("#grid").css("display","none");
+        }
+         else if (this.value == 'grid') {
+            $("#grid").css("display","block");
+            $("#lista").css("display","none");
+            $("#geral").css("display","none");
+        }
+    });
+});
+  </script>
+
+
+
+
+
+
+  <style>
+    
+    .none{
+    display:none;
+}
+
+  </style>
+
+
+</head>
+
+<body> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<input type="radio" name="group" value="geral">Geral<br>
+<input type="radio" name="group" value="lista">Lista<br>
+<input type="radio" name="group" value="grid">Grid<br/>
+
+<div id="geral">
+  Geral Mostra ao entrar na página
+</div>
+
+<div id="lista" class="none">
+  Lista, mostra ao selecionar Lista no radio
+</div>
+
+<div id="grid" class="none">
+  Grid, mostra ao selecionar Lista no radio
+</div>
+
+
+
+  
+</body>
+</html>
+  
